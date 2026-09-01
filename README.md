@@ -106,9 +106,26 @@ adb shell settings put secure long_press_timeout 200
 adb shell settings put global app_standby_enabled 0
 ```
 
-### Step C: Full System Recompilation (ART Optimization for Unisoc)
+### Step C: ART Optimization (Advanced Compilation Options)
+
+* **Full system recompilation (Ideal for initial setup):**
 ```bash
-adb shell cmd package compile -m speed -a
+  adb shell cmd package compile -m speed -a
+```
+
+* **Compile a single specific package (For new or individual apps without full recompilation):**
+```bash
+  adb shell cmd package compile -m speed <package_name>
+```
+
+* **Reset/Decompile a specific application profile:**
+```bash
+  adb shell cmd package compile --reset <package_name>
+```
+
+* **Reset/Decompile all packages in the system:**
+```bash
+  adb shell cmd package compile --reset -a
 ```
 
 ---
